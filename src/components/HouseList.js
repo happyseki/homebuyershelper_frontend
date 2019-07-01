@@ -5,9 +5,9 @@ class HouseList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="houseList">
       Single Family Houses For Sale
-      {this.props.houses.map((house,index)=><HouseCard key={index} house={house}/>)}
+      {this.props.houses.map((house,index)=><HouseCard key={index} house={house} />)}
       </div>
     );
   }

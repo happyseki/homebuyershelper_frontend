@@ -29,6 +29,16 @@
   color: #61dafb;
 }
 
+.nav-links{
+  height: 0;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+.show-nav {
+  height:100px
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
