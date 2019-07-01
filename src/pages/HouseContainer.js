@@ -6,21 +6,14 @@ import HouseDetail from '../pages/HouseDetail.js';
 
 class HouseContainer extends Component {
 
-
-  // getHouse=(id)=>{
-  //   let house= this.state.houses.find(h=> h.id === id)
-  //     return house
-  // }
-
   render() {
-    // console.log(this.state)
     return (
      <React.Fragment>
          <Nav />
          <HousesMap />
          <HouseList houses={this.props.houses} />
          <HouseDetail />
-    </React.Fragment>
+     </React.Fragment>
     );
   }
 

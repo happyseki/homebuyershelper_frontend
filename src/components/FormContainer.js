@@ -45,8 +45,8 @@ class FormContainer extends Component {
       <Form
         handleChange={this.handleChange}
         data={this.state}
+        house={this.props.house}
       />
-      CHOOSE {this.state.yearFixed}
       </div>
     );
   }
