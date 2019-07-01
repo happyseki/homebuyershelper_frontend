@@ -16,7 +16,7 @@ class HouseDetail extends Component {
 
     return (
       <div className="HouseDetail">
-
+          HOUSE DETAIL
         <FormContainer />
       </div>
     );
