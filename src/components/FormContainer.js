@@ -19,9 +19,12 @@ class FormContainer extends Component {
 
   }
   handleChange=(e)=>{
-    console.log(e.target.value)
-    // e.target.type === 'checkbox'? this.setState({[e.target.name]: checked}) :this.setState({[e.target.name]: value})
-    }
+    const { name,value } = e.target
+    // debugger
+   this.setState({[name]: value})
+
+  }
+
 
     // <h2>Result</h2>
     // let p = this.props.price - this.state.downpayment,
@@ -30,7 +33,7 @@ class FormContainer extends Component {
     // yearFixed === '15-year-fixed'? n=180 : n=360
     // monthlyPayment = p*( r*Math.pow(1+r,n)) / (Math.pow(1+r,n)-1) )
     //result = monthlyPayment.toFixed(2)
-    
+
     // <h2>Eligibility</h2>
     // D/I = (result + this.props.insurance + this.props.tax +
     // this.state.carLoan + this.state.studentLoan +

@@ -6,13 +6,29 @@ import {Route, Switch} from 'react-router-dom';
 import './App.css';
 
 class App extends React.Component {
+  state={
+    houses: []
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/api/v1/houses')
+    .then(res=>res.json())
+    .then(houses=>{
+      this.setState(prevState=>({
+        houses: houses
+      }))
+    })
+  }
 
   render(){
     return(
         <React.Fragment>
           <Switch>
-          <Route exact path="/houses" component={HouseContainer} />
-          <Route exact path="/houses/:id" component={HouseDetail} />
+          <Route exact path="/houses" render={(router)=><HouseContainer {...router} houses={this.state.houses}/>} />
+          <Route exact path="/houses/:id" render={(router)=> {
+            const foundHouse = this.state.houses.find(house => house.id === parseInt(router.match.params.id))
+            return <HouseDetail {...router} house={foundHouse}/>
+          }} />
           <Route component={NotFound} />
           </Switch>
         </React.Fragment>

@@ -6,19 +6,6 @@ import HouseDetail from '../pages/HouseDetail.js';
 
 class HouseContainer extends Component {
 
-  state={
-    houses: []
-  }
-
-  componentDidMount(){
-    fetch('http://localhost:3000/api/v1/houses')
-    .then(res=>res.json())
-    .then(houses=>{
-      this.setState(prevState=>({
-        houses: houses
-      }))
-    })
-  }
 
   // getHouse=(id)=>{
   //   let house= this.state.houses.find(h=> h.id === id)
@@ -31,7 +18,7 @@ class HouseContainer extends Component {
      <React.Fragment>
          <Nav />
          <HousesMap />
-         <HouseList houses={this.state.houses} />
+         <HouseList houses={this.props.houses} />
          <HouseDetail />
     </React.Fragment>
     );

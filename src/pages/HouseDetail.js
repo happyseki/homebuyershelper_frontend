@@ -2,24 +2,26 @@ import React, { Component } from 'react';
 import FormContainer from '../components/FormContainer.js';
 
 class HouseDetail extends Component {
-  constructor(props) {
-		super(props);
-		console.log(this.props.location);
-    // this.state = {
-		// 	house: this.props.loction.houseProps.house
-    //   }
-    }
     // <h1>{this.props.loction.houseProps.house.price}</h1>
     // const house = this.props.getHouse(this.state.id)
     // console.log("house", this.state.house)
   render() {
+    const { house } = this.props
+    console.log(house);
+    if (house){
+      return (
+        <div className="HouseDetail">
+         <div class="image-card">
+        {house.images.map(image=><img src={image.name} alt='houseimages' width='500' height='400'/>)}
+         </div>
+        <h1>{this.props.house.price}</h1>
+          <FormContainer />
+        </div>
+      );
+    } else {
+      return <h1>Loading...</h1>
+    }
 
-    return (
-      <div className="HouseDetail">
-          HOUSE DETAIL
-        <FormContainer />
-      </div>
-    );
   }
 
 }
