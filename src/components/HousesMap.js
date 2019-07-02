@@ -32,16 +32,16 @@ class HousesMap extends Component {
             />
             {position.map((p,index)=>
               <Marker
-              key={index}
-               position={p}
-               icon={icon}>
-               onClick={() => this.props.history.push("/another-page")}
-               <Popup>
-                <Link to={`/houses/${index}`}  >
-                 go
-                </Link>
-              </Popup>
-             </Marker>
+                 key={index}
+                 position={p}
+                 icon={icon}>
+                 onClick={() => this.props.history.push("/another-page")}
+                 <Popup>
+                   <Link to={`/houses/${index+1}`}  >
+                     Check it!
+                   </Link>
+                 </Popup>
+              </Marker>
             )}
            </Map>
         </div>
