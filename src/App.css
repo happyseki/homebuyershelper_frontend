@@ -35,6 +35,41 @@
   list-style-type: none;
 }
 
+.house-container {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+
+    .house-card {
+      width: calc(33% - 10px);
+      border-radius: 5px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+      -webkit-box-shadow: 3px 7px 9px 0px rgba(0,0,0,0.33);
+       -moz-box-shadow: 3px 7px 9px 0px rgba(0,0,0,0.33);
+       box-shadow: 3px 7px 9px 0px rgba(0,0,0,0.33);
+       .house-image-container {
+         width: 100%;
+       }
+    }
+
+ }
+
+
+
+.image-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+ }
+ .image-card {
+   width: calc(25% - 38px);
+   margin-right: 20px;
+   margin-bottom: 20px;
+ }
+
 .show-nav {
   height:100px
 }

@@ -7,10 +7,15 @@ class HouseDetail extends Component {
     const { house } = this.props
     if (house){
       return (
-        <div className="HouseDetail">
-           <div class="image-card">
-            {house.images.map(image=><img src={image.name} alt='houseimages'
-             width='500' height='400'/>)}
+
+        <div className="HouseDetail" >
+           <div className="image-container">
+            {house.images.map(image=>{
+            return(  <div className="image-card">
+              <img src={image.name} alt='houseimages'
+             width='300' height='200'/>
+             </div>
+           )})}
            </div>
           <h1>${house.price}</h1>
           <p> {house.area} </p>

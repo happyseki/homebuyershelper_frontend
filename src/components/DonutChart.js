@@ -17,12 +17,12 @@ class DonutChart extends Component {
         this.setState({
           chartData:{
               labels: [
-                'Red',
-                'Green',
-                'Yellow'
+                'P&I',
+                'Tax',
+                'Insurance'
               ],
               datasets:[{
-                data: [this.props.getMonthlyPayment(), this.props.tax, this.props.insurance],
+                data: [this.props.displayPayment, this.props.tax, this.props.insurance],
                 backgroundColor: [
                   '#FF6384',
                   '#36A2EB',
@@ -33,8 +33,8 @@ class DonutChart extends Component {
                   '#36A2EB',
                   '#FFCE56'
                 ],
-                text: 'Hey'
-              }]
+              }],
+            text: '23%'
           }
         });
       }

@@ -5,10 +5,12 @@ class HouseList extends Component {
 
   render() {
     return (
-      <div className="houseList">
-        Single Family Houses For Sale
+      <>
+          Single Family Houses For Sale
+      <div className="house-container">
         {this.props.houses.map((house,index)=><HouseCard key={index} house={house} />)}
       </div>
+      </>
     );
   }
 

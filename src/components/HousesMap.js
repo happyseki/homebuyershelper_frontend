@@ -46,7 +46,7 @@ class HousesMap extends Component {
                  onClick={() => this.props.history.push("/another-page")}
                  <Popup>
                    <Link to={`/houses/${index+1}`}  >
-                     Check it!
+                     <strong>Check it!</strong>
                    </Link>
                  </Popup>
               </Marker>

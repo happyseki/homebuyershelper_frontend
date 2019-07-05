@@ -6,33 +6,34 @@ function Form(props) {
   return (
       <form>
         <h3>Down Payment:</h3>
-        <p style={{ color: 'gray', front: '5px' }}>Down payment should be over 20% of the property price</p>
-            $<input type='text' name='downpayment' onfocus="this.value=''"
+            $<input type='text' name='downpayment' onFocus={()=>props.inputOnFocus()}
             value={props.data.percentage > 0 && props.data.percentage >= 20 && props.data.percentage<100 ?
                (props.data.downpayment = Math.round(props.house.price * (props.data.percentage/100)) )
                : props.data.downpayment}
             onChange={props.handleChange} />&nbsp;&nbsp;
-            <input type='text' name='percentage' onfocus="this.value=''"
+            <input type='text' name='percentage' onFocus={()=>props.inputOnFocus()}
             value={props.data.downpayment > 0 && props.data.downpayment>=props.house.price * 0.2 ?
             (props.data.percentage = Math.round( (props.data.downpayment/props.house.price)*100 ))
             : props.data.percentage}
             onChange={props.handleChange} />%
+            <p style={{ color: 'red' }}>{props.data.percentage>=20 || props.data.downpayment>=props.house.price * 0.2
+              || (props.data.percentage === '' && props.data.downpayment === '' )?
+               null:'Down payment should be over 20% of the property price'}</p>
         <br/>
-
         <h3>Loan Program:</h3>
-            <input type='radio' name='yearFixed' value='15-year-fixed'
-            checked={props.data.yearFixed === '15-year-fixed'}
+            <input type='radio' name='selected' value='15-year-fixed'
+            checked={props.data.selected === '15-year-fixed'}
             onChange={props.handleChange} />15-year-fixed
-            <input type='radio' name='yearFixed' value='30-year-fixed'
-            checked={props.data.yearFixed === '30-year-fixed'}
+            <input type='radio' name='selected' value='30-year-fixed'
+            checked={props.data.selected === '30-year-fixed'}
             onChange={props.handleChange} />30-year-fixed
         <br/>
 
-        Interest Rate: <input type='text' name='interestRate'
+        Interest Rate: <input type='text' name='interestRate' 
             value={props.data.interestRate} onChange={props.handleChange} />%
         <br/>
         <h2>Eligibility</h2>
-         <h3>Income:</h3>
+         <h3>Monthly Income:</h3>
               <input type='text' name='income' value={props.data.income}
               onChange={event => props.handleChange(event)} />
           <br/>
