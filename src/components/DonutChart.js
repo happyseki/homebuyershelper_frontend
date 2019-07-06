@@ -22,7 +22,7 @@ class DonutChart extends Component {
                 'Insurance'
               ],
               datasets:[{
-                data: [this.props.displayPayment, this.props.tax, this.props.insurance],
+                data: [this.props.getMonthlyPayment(), this.props.tax, this.props.insurance],
                 backgroundColor: [
                   '#FF6384',
                   '#36A2EB',

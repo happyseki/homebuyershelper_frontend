@@ -55,14 +55,13 @@
 
  }
 
-
-
 .image-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
  }
  .image-card {
    width: calc(25% - 38px);

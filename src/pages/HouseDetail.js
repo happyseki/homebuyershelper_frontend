@@ -4,11 +4,11 @@ import FormContainer from '../components/FormContainer.js';
 class HouseDetail extends Component {
     // console.log("house", this.state.house)
   render() {
+    // const Blur = require('react-blur');
     const { house } = this.props
     if (house){
       return (
-
-        <div className="HouseDetail" >
+        <div className="HouseDetail">
            <div className="image-container">
             {house.images.map(image=>{
             return(  <div className="image-card">

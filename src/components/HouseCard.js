@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { List } from 'semantic-ui-react'
 
 class HouseCard extends Component {
   render() {
@@ -10,9 +11,20 @@ class HouseCard extends Component {
         to={{pathname:`/houses/${house.id}`}}>
           <div className='house-image-container'><img src={house.images[0].name} alt='house' width='500' height='400'/></div>
             <h1>${house.price}</h1>
-            <p> {house.area} </p>
-            <h3>{house.location}</h3>
-            <p>House For Sale</p>
+            <List>
+                <List.Item>
+                  <List.Icon name='home' />
+                  <List.Content>{house.area}</List.Content>
+                </List.Item>
+                <List.Item>
+                  <List.Icon name='marker' />
+                  <List.Content>{house.location}</List.Content>
+                </List.Item>
+                <List.Item>
+                  <List.Icon name='smile outline' />
+                  <List.Content>House For Sale</List.Content>
+                </List.Item>
+            </List>
         </Link>
       </div>
     );

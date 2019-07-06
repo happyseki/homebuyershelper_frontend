@@ -14,7 +14,7 @@ class FormContainer extends Component {
       downpayment:0,
       percentage:0,
       interestRate:4,
-      selected: '30-year-fixed'
+      selected: ''
       // displayPayment:0
     }
 
@@ -39,9 +39,7 @@ class FormContainer extends Component {
     //       )
 
   }
- keyPressed=(e)=>{
-   console.log(e.key)
- }
+
 
   getMonthlyPayment=(price, downpayment, interestRate, selected )=>{
       const p = this.props.house.price - this.state.downpayment,
@@ -56,9 +54,7 @@ class FormContainer extends Component {
       }
       monthlyPayment = p * ( r*Math.pow(1+r,n) / (Math.pow(1+r,n)-1) )
        + this.props.house.tax + this.props.house.insurance
-       // this.setState(prevState=>({
-       //  displayPayment: monthlyPayment.toFixed(2)
-       // }))
+
       return monthlyPayment.toFixed(2)
   }
 
@@ -76,11 +72,15 @@ class FormContainer extends Component {
     return (
       <div>
       <h2>Result</h2>
-        <DonutChart
-          getMonthlyPayment={this.getMonthlyPayment}
-          tax={this.props.house.tax}
-          insurance={this.props.house.insurance}
-        />
+        {
+          this.state.downpayment>0 && this.state.interestRate>0 && this.state.selected !== '' ?
+          <DonutChart
+            getMonthlyPayment={this.getMonthlyPayment}
+            tax={this.props.house.tax}
+            insurance={this.props.house.insurance}
+          />: null
+        }
+
       <h3 style={{ color: 'red' }}>Monthly Payment: {
           this.state.downpayment>0 && this.state.interestRate>0 && this.state.selected !== '' ?
           this.getMonthlyPayment() : null }</h3>
