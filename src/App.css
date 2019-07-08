@@ -35,6 +35,33 @@
   list-style-type: none;
 }
 
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 3px;
+  height: 500px;
+ }
+.column2 {
+  float: left;
+  width: 100%;
+  padding: 3px;
+  height: 500px;
+ }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.box {
+  overflow: auto;
+  top: 5px;
+  bottom: 50px;
+}
+
 .section{
   display: flex;
   flex-direction: row;
@@ -42,11 +69,12 @@
 }
 
 .house-container {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   /* flex-direction: column;
+   flex-wrap: wrap; */
 
-    .house-card {
+    /* .house-card {
       width: calc(33% - 10px);
       border-radius: 5px;
       margin-right: 10px;
@@ -57,8 +85,24 @@
        .house-image-container {
          width: 100%;
        }
-    }
+    } */
 
+ }
+ .house-card {
+   /* width: calc(35% - 5px); */
+   border-radius: 5px;
+   margin-right: 10px;
+   margin-bottom: 20px;
+   -webkit-box-shadow: 3px 7px 9px 0px rgba(0,0,0,0.33);
+    -moz-box-shadow: 3px 7px 9px 0px rgba(0,0,0,0.33);
+    box-shadow: 3px 7px 9px 0px rgba(0,0,0,0.33);
+ }
+ .house-image-container {
+   width: 100%;
+ }
+
+ .card-image{
+   width:100%;
  }
 
 .image-container {
@@ -71,6 +115,7 @@
  }
  .image-card {
    width: calc(25% - 38px);
+   /* width: calc(25% - 38px); */
    margin-right: 20px;
    margin-bottom: 20px;
  }
@@ -82,6 +127,9 @@
    border: 3px solid #3cefff;
    overflow: hidden;
    animation: spin 1s ease infinite;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
  }
 
  .loader::before {
@@ -131,6 +179,8 @@ main{
   filter:blur(20px);
   margin: -30px;
 } */
+
+
 .show-nav {
   height:100px
 }

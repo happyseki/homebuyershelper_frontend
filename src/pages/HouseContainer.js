@@ -10,9 +10,18 @@ class HouseContainer extends Component {
     return (
      <React.Fragment>
          <Nav />
-         <div className='section'>
-         <HousesMap />
-         <HouseList houses={this.props.houses} />
+         <div className='row'>
+
+            <div className='column'>
+              <HousesMap />
+            </div>
+
+            <div className='box'>
+             <div className='column2'>
+              {this.props.houses.length > 0 ? <HouseList houses={this.props.houses} /> : <p className='loader'>Loading...</p>}
+             </div>
+           </div>
+
          </div>
          <HouseDetail />
      </React.Fragment>

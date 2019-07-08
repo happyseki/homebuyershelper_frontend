@@ -14,7 +14,7 @@ class HouseDetail extends Component {
             {house.images.map(image=>{
             return(  <div className="image-card">
               <img src={image.name} alt='houseimages'
-             width='300' height='200'/>
+             width='350' height='280'/>
              </div>
            )})}
            </div>
@@ -28,11 +28,13 @@ class HouseDetail extends Component {
         </div>
       );
     } else {
-      return <p className='loader'>Loading...</p>
+      return null
     }
 
   }
 
 }
+
+// <p className='loader'>Loading...</p>
 
 export default HouseDetail;

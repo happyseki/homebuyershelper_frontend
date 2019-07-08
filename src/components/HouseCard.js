@@ -9,7 +9,7 @@ class HouseCard extends Component {
       <div className="house-card">
         <Link style={{ textDecoration: 'none', color: 'black' }}
         to={{pathname:`/houses/${house.id}`}}>
-          <div className='house-image-container'><img src={house.images[0].name} alt='house' width='500' height='400'/></div>
+          <div className='house-image-container'><img src={house.images[0].name} alt='house' className='card-image'/></div>
             <h1>${house.price}</h1>
             <List>
                 <List.Item>
