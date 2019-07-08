@@ -2,19 +2,9 @@ import React, { Component } from 'react';
 import {Doughnut} from 'react-chartjs-2';
 
 class DonutChart extends Component {
-    constructor(props){
-    super(props);
-    this.state = {
-      chartData:{}
-    }
-  }
-
-    componentWillMount(){
-      this.getChartData();
-    }
 
     getChartData(){
-        this.setState({
+        return {
           chartData:{
               labels: [
                 'P&I',
@@ -22,7 +12,7 @@ class DonutChart extends Component {
                 'Insurance'
               ],
               datasets:[{
-                data: [this.props.getMonthlyPayment(), this.props.tax, this.props.insurance],
+                data: [this.props.monthlyPayment, this.props.tax, this.props.insurance],
                 backgroundColor: [
                   '#FF6384',
                   '#36A2EB',
@@ -36,13 +26,13 @@ class DonutChart extends Component {
               }],
             text: '23%'
           }
-        });
+        }
       }
 
   render() {
     return (
       <div>
-       <Doughnut data={this.state.chartData} />
+       <Doughnut data={this.getChartData().chartData} />
      </div>
     );
   }

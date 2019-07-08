@@ -9,6 +9,7 @@ class HouseDetail extends Component {
     if (house){
       return (
         <div className="HouseDetail">
+        <main>
            <div className="image-container">
             {house.images.map(image=>{
             return(  <div className="image-card">
@@ -23,10 +24,11 @@ class HouseDetail extends Component {
           <p>For Sale</p>
           <p>Property Taxes: ${house.tax}/mo   &nbsp;&nbsp;  Home Insurance: ${house.insurance}/mo</p>
           <FormContainer house={house} />
+          </main>
         </div>
       );
     } else {
-      return <h1>Loading...</h1>
+      return <p className='loader'>Loading...</p>
     }
 
   }

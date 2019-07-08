@@ -46,7 +46,6 @@ class FormContainer extends Component {
             r = this.state.interestRate/ 100 / 12
       let n,
           monthlyPayment
-      // this.state.yearFixed === '15-year-fixed' ?  n=180 : n=360
       if(this.state.selected === '15-year-fixed'){
         n=180
       }else if(this.state.selected=== '30-year-fixed'){
@@ -75,7 +74,7 @@ class FormContainer extends Component {
         {
           this.state.downpayment>0 && this.state.interestRate>0 && this.state.selected !== '' ?
           <DonutChart
-            getMonthlyPayment={this.getMonthlyPayment}
+            monthlyPayment={this.getMonthlyPayment()}
             tax={this.props.house.tax}
             insurance={this.props.house.insurance}
           />: null
