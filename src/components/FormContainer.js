@@ -14,18 +14,63 @@ class FormContainer extends Component {
       downpayment:0,
       percentage:0,
       interestRate:4,
-      selected: ''
-      // displayPayment:0
+      selected: '',
+      isShow: false
     }
 
   }
   handleChange=(e)=>{
-    const { name,value } = e.target
+    let { name,value } = e.target
     // debugger
-   this.setState(prevState=>({ [name]: value })
-    )
+    // console.log(name, value);
+    if (name !== "selected"){
+      value = parseInt(value)
+    }
+
+    if ((name === "percentage")){
+      if (value > 0 && value >= 20 && value<100){
+        console.log(value);
+        this.setState({
+          downpayment: Math.round(this.props.house.price * (value/100)),
+          percentage: value
+        })
+      } else {
+        this.setState({
+          percentage: value,
+          downpayment: 0
+        })
+      }
+
+    } else if(name === "downpayment"){
+      if(value > 0 && value>=this.props.house.price * 0.2 && value<=this.props.house.price*0.99){
+        console.log(value);
+        this.setState({
+         downpayment: value,
+          percentage: Math.round((value/this.props.house.price)*100)
+        })
+      } else {
+        this.setState({
+          downpayment: value,
+          percentage: 0
+        })
+      }
+    } else {
+      this.setState(prevState=>({ [name]: value }))
+    }
   }
 
+  inputOnFocus = () => {
+    // this.setState(prevState=>({
+    //   downpayment:0,
+    //   percentage:0
+    // }))
+  }
+
+  handleToggle = () =>{
+    this.setState(prevState=>({
+      isShow: !this.state.isShow
+    }))
+  }
 
   getMonthlyPayment=(price, downpayment, interestRate, selected )=>{
       const p = this.props.house.price - this.state.downpayment,
@@ -43,30 +88,34 @@ class FormContainer extends Component {
       return monthlyPayment.toFixed(2)
   }
 
-  inputOnFocus = ()=> {
-   this.setState(prevState=>({
-     downpayment:'',
-     percentage:''
-   }))
- }
+  getResult = (getMonthlyPayment, carLoan, studentLoan, creditCard, therPropertiesDebts) =>{
+  return (
+    (parseFloat(this.getMonthlyPayment()) + this.state.carLoan + this.state.studentLoan +
+   this.state.creditCard + this.state.OtherPropertiesDebts) / this.state.income
+    )
+  }
+
 
   render() {
-    // console.log(this.state.selected)
-    let DI = (this.getMonthlyPayment() + this.state.carLoan + this.state.studentLoan +
-    this.state.creditCard + this.state.OtherPropertiesDebts) / this.state.income
+    console.log(this.getResult())
+    // let DI = (this.getMonthlyPayment() + this.state.carLoan + this.state.studentLoan +
+    // this.state.creditCard + this.state.OtherPropertiesDebts) / this.state.income
     return (
-      <div>
-      <h2>Result</h2>
-        {
-          this.state.downpayment>0 && this.state.interestRate>0 && this.state.selected !== '' ?
-          <DonutChart
-            monthlyPayment={this.getMonthlyPayment()}
-            tax={this.props.house.tax}
-            insurance={this.props.house.insurance}
-          />: null
-        }
+      <>
+      <button type='button' className='calculator' onClick={this.handleToggle}>Check Mortgage</button>
+      <br/>
+      <br/>
 
-      <h3 style={{ color: 'red' }}>Monthly Payment: {
+          <div className={this.state.isShow? null:'breakdown'}>
+          {
+            this.state.downpayment>0 && this.state.interestRate>0 && this.state.selected !== '' ?
+            <DonutChart
+              monthlyPayment={this.getMonthlyPayment()}
+              tax={this.props.house.tax}
+              insurance={this.props.house.insurance}
+            />: null
+          }
+      <h3>Your Monthly Payment: {
           this.state.downpayment>0 && this.state.interestRate>0 && this.state.selected !== '' ?
           this.getMonthlyPayment() : null }</h3>
       <Form
@@ -75,10 +124,11 @@ class FormContainer extends Component {
         data={this.state}
         house={this.props.house}
       />
-      <h3 style={{ color: 'red' }}> Result</h3>
-      <h3 >{this.state.income > 0 && DI<0.5? 'Congrads!Eligible!' : (this.state.income === 0 ? null : 'Sorry, not eligibale')}</h3>
+      <h2 style={{ color: 'red' }}> Result</h2>
+      <h3 >{this.state.income > 0 && this.getResult()<0.5? 'Congrads!Eligible!' : (this.state.income === 0 ? null : 'Sorry, not eligibale')}</h3>
       <p>************************</p>
       </div>
+      </>
     );
   }
 

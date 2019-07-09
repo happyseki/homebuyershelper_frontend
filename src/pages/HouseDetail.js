@@ -22,12 +22,13 @@ class HouseDetail extends Component {
            </div>
            </div>
           <div className='info'>
-          <h1>${house.price}</h1>
-          <p> {house.area} </p>
-          <h3>{house.location}</h3>
-          <p>For Sale</p>
-          <p>Property Taxes: ${house.tax}/mo   &nbsp;&nbsp;  Home Insurance: ${house.insurance}/mo</p>
-          <FormContainer house={house} />
+              <div className='headline'>
+              <h1>${house.price}</h1>
+              <p> {house.area} </p>
+              </div>
+              <h3>{house.location}</h3>
+              <p>Property Taxes: ${house.tax}/mo   &nbsp;&nbsp;  Home Insurance: ${house.insurance}/mo</p>
+              <FormContainer house={house} />
           </div>
           </div>
           </main>
