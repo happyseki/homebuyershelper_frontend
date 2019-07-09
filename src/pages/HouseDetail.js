@@ -10,6 +10,8 @@ class HouseDetail extends Component {
       return (
         <div className="HouseDetail">
         <main>
+        <div className='row1'>
+        <div className='info'>
            <div className="image-container">
             {house.images.map(image=>{
             return(  <div className="image-card">
@@ -18,12 +20,16 @@ class HouseDetail extends Component {
              </div>
            )})}
            </div>
+           </div>
+          <div className='info'>
           <h1>${house.price}</h1>
           <p> {house.area} </p>
           <h3>{house.location}</h3>
           <p>For Sale</p>
           <p>Property Taxes: ${house.tax}/mo   &nbsp;&nbsp;  Home Insurance: ${house.insurance}/mo</p>
           <FormContainer house={house} />
+          </div>
+          </div>
           </main>
         </div>
       );

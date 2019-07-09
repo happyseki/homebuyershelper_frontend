@@ -10,6 +10,7 @@ class HouseList extends Component {
       <div className="house-container">
         {this.props.houses.map((house,index)=><HouseCard key={index} house={house} />)}
       </div>
+
       </>
     );
   }

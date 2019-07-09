@@ -22,7 +22,7 @@ class Nav extends Component {
            </button>
             <div className="nav-header">
             HomeBuyersHelper
-          </div>
+          </div><img src='../logo.jpg' alt='logo'/>
           <ul className={this.state.isOpen? "nav-links show-nav" : "nav-links"}>
           <li>
           <Link to="/profile">Profile</Link>

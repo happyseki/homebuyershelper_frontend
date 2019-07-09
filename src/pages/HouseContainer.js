@@ -21,7 +21,6 @@ class HouseContainer extends Component {
               {this.props.houses.length > 0 ? <HouseList houses={this.props.houses} /> : <p className='loader'>Loading...</p>}
              </div>
            </div>
-
          </div>
          <HouseDetail />
      </React.Fragment>

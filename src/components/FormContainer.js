@@ -24,20 +24,6 @@ class FormContainer extends Component {
     // debugger
    this.setState(prevState=>({ [name]: value })
     )
-    // const p = this.props.house.price - this.state.downpayment,
-    //       r = this.state.interestRate/ 100 / 12
-    // let n,
-    //     monthlyPayment
-    //     if(this.state.selected === '15-year-fixed'){
-    //       n=180
-    //     }else if(this.state.selected=== '30-year-fixed'){
-    //       n=360
-    //     }
-    //     monthlyPayment = p * ( r*Math.pow(1+r,n) / (Math.pow(1+r,n)-1) )
-    //      + this.props.house.tax + this.props.house.insurance
-    //      this.setState(prevState=>({ displayPayment: this.state.displayPayment + monthlyPayment.toFixed(2) })
-    //       )
-
   }
 
 
