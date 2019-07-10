@@ -86,9 +86,19 @@ class FormContainer extends Component {
       return principalInterest.toFixed(2)
   }
 
-  getPayment=(getPrincipalInterest,tax,insurance)=>(
-     parseFloat(this.getPrincipalInterest()) + parseInt(this.props.house.tax) + parseInt(this.props.house.insurance)
-   )
+  // getPayment=(getPrincipalInterest,tax,insurance)=>(
+  //    parseFloat(this.getPrincipalInterest()) + parseInt(this.props.house.tax) + parseInt(this.props.house.insurance)
+  //  )
+
+  getPayment=(getPrincipalInterest,tax,insurance)=>{
+
+        if(this.props.house.house_type === 'co-op'){
+         return parseFloat(this.getPrincipalInterest()) + parseInt(this.props.house.tax) + parseInt(this.props.house.insurance) + parseInt(900)
+       }else{
+         return parseFloat(this.getPrincipalInterest()) + parseInt(this.props.house.tax) + parseInt(this.props.house.insurance)
+        }
+
+   }
 
   getResult = (getPrincipalInterest, carLoan, studentLoan, creditCard, therPropertiesDebts) =>{
   return (
@@ -117,11 +127,14 @@ class FormContainer extends Component {
           }
       <h2>Your Monthly Payment: {
           this.state.downpayment>0 && this.state.interestRate>0 && this.state.selected !== '' ?
-          this.getPayment() : null }</h2>
-      {/*<h3>Principal & Interest: {
+          (this.props.house.house_type === 'co-op'? `${this.getPayment()} (HOA Fee included)` : this.getPayment() )
+          : null }</h2>
+      {/*
+        <h3>Principal & Interest: {
               this.state.downpayment>0 && this.state.interestRate>0 && this.state.selected !== '' ?
               this.getPrincipalInterest() : null }</h3>
-      <h3>Property Taxes: ${this.props.house.tax}/mo   &nbsp;&nbsp;  Home Insurance: ${this.props.house.insurance}/mo</h3>*/}
+      <h3>Property Taxes: ${this.props.house.tax}/mo   &nbsp;&nbsp;  Home Insurance: ${this.props.house.insurance}/mo</h3>
+      */}
       <Form
         handleChange={this.handleChange}
         inputOnFocus={this.inputOnFocus}

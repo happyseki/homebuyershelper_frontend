@@ -16,7 +16,7 @@ class HouseDetail extends Component {
             {house.images.map(image=>{
             return(  <div className="image-card">
               <img src={image.name} alt='houseimages'
-             width='350' height='280'/>
+             width='350' height='250'/>
              </div>
            )})}
            </div>
@@ -28,6 +28,7 @@ class HouseDetail extends Component {
               </div>
               <h3>{house.location}</h3>
               <p>Property Taxes: ${house.tax}/mo   &nbsp;&nbsp;  Home Insurance: ${house.insurance}/mo</p>
+              <p>{house.house_type === 'co-op'? 'HOA Fee: $900' : null}</p>
               <FormContainer house={house} />
           </div>
           </div>

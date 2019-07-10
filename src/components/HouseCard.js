@@ -22,7 +22,7 @@ class HouseCard extends Component {
                 </List.Item>
                 <List.Item>
                   <List.Icon name='smile outline' />
-                  <List.Content>House For Sale</List.Content>
+                  <List.Content>{house.house_type} For Sale</List.Content>
                 </List.Item>
             </List>
         </Link>

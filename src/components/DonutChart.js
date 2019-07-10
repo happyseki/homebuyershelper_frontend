@@ -12,7 +12,7 @@ class DonutChart extends Component {
                 `Insurance: $${this.props.insurance}`
               ],
               datasets:[{
-                data: [this.props.principalInterest, this.props.tax, this.props.insurance],
+                data: [this.props.principalInterest, this.props.tax, this.props.insurance,],
                 backgroundColor: [
                   '#FF6384',
                   '#36A2EB',

@@ -1,6 +1,7 @@
 import React from 'react';
 import HouseContainer from './pages/HouseContainer.js';
 import HouseDetail from './pages/HouseDetail.js';
+import Nav from './components/Nav.js';
 import NotFound from './pages/NotFound.js';
 import {Route, Switch} from 'react-router-dom';
 import './App.css';
@@ -23,6 +24,7 @@ class App extends React.Component {
   render(){
     return(
         <React.Fragment>
+          <Nav />
           <Switch>
           <Route exact path="/houses" render={(router)=><HouseContainer {...router} houses={this.state.houses}/>} />
           <Route exact path="/houses/:id" render={(router)=> {
