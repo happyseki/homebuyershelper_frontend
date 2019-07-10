@@ -21,8 +21,8 @@ class Nav extends Component {
            <FaAlignLeft className="nav-icon" />
            </button>
             <div className="nav-header">
-            HomeBuyersHelper
-          </div><img src='../logo.jpg' alt='logo'/>
+            <h1 id='app-name'>HomeBuyersHelper</h1><img className='logo' src="./houselogo.png" alt="logo" />
+          </div>
           <ul className={this.state.isOpen? "nav-links show-nav" : "nav-links"}>
           <li>
           <Link to="/profile">Profile</Link>
