@@ -7,12 +7,12 @@ class DonutChart extends Component {
         return {
           chartData:{
               labels: [
-                'P&I',
-                'Tax',
-                'Insurance'
+                `Principal & Interest: $${this.props.principalInterest}`,
+                `Tax: $${this.props.tax}`,
+                `Insurance: $${this.props.insurance}`
               ],
               datasets:[{
-                data: [this.props.monthlyPayment, this.props.tax, this.props.insurance],
+                data: [this.props.principalInterest, this.props.tax, this.props.insurance],
                 backgroundColor: [
                   '#FF6384',
                   '#36A2EB',
@@ -23,8 +23,7 @@ class DonutChart extends Component {
                   '#36A2EB',
                   '#FFCE56'
                 ],
-              }],
-            text: '23%'
+              }]
           }
         }
       }

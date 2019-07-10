@@ -19,7 +19,7 @@ function Form(props) {
             <p style={{ color: 'red' }}> {data.percentage>=20 || data.downpayment>=house.price * 0.2
               || data.percentage<100 || data.downpayment<house.price || (data.percentage === '' && data.downpayment === '' )?
                null:'Down payment should be over 20% of the property price'} </p>
-        <br/>
+
         <h3>Loan Program:</h3>
             <Input type='radio' name='selected' value='15-year-fixed'
             checked={data.selected === '15-year-fixed'}

@@ -42,6 +42,4 @@ class HouseDetail extends Component {
 
 }
 
-// <p className='loader'>Loading...</p>
-
 export default HouseDetail;
