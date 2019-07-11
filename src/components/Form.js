@@ -40,7 +40,7 @@ function Form(props) {
               onChange={event => handleChange(event)} />
           <br/>
 
-          <h3>Debts:</h3>
+          <h3>Liabilities:</h3>
               Car Loan:
               <Input type='number' name='carLoan' value={data.carLoan}
               onChange={handleChange} />
@@ -55,7 +55,7 @@ function Form(props) {
               <Input type='number' name='creditCard' value={data.creditCard}
               onChange={handleChange} />
 
-              Other Properties Debts:
+              Payments for all other REO:
               <Input type='number' name='OtherPropertiesDebts'
               value={data.OtherPropertiesDebts} onChange={handleChange} />
               <br/>

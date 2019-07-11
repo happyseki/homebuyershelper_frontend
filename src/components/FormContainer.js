@@ -93,9 +93,9 @@ class FormContainer extends Component {
   getPayment=(getPrincipalInterest,tax,insurance)=>{
 
         if(this.props.house.house_type === 'co-op'){
-         return parseFloat(this.getPrincipalInterest()) + parseInt(this.props.house.tax) + parseInt(this.props.house.insurance) + parseInt(900)
+         return ( parseFloat(this.getPrincipalInterest()) + parseInt(this.props.house.tax) + parseInt(this.props.house.insurance) + parseInt(900) ).toFixed(2)
        }else{
-         return parseFloat(this.getPrincipalInterest()) + parseInt(this.props.house.tax) + parseInt(this.props.house.insurance)
+         return ( parseFloat(this.getPrincipalInterest()) + parseInt(this.props.house.tax) + parseInt(this.props.house.insurance) ).toFixed(2)
         }
 
    }
