@@ -22,8 +22,8 @@ class FormContainer extends Component {
   handleChange=(e)=>{
     let { name,value } = e.target
     // debugger
-    // console.log(name, value);
-    if (name !== "selected"){
+    console.log(name, value);
+    if (name !== "selected" && name !=='interestRate'){
       value = parseInt(value)
     }
 

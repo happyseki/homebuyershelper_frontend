@@ -31,11 +31,11 @@ function Form(props) {
             onChange={handleChange} /> 30-year-fixed
         <br/>
 
-        Interest Rate: <Input type='number' name='interestRate'
+        Interest Rate: <Input type='number' name='interestRate' step='0.1'
             value={data.interestRate} onChange={handleChange} />%
         <br/>
 
-        <h2>Eligibility</h2>
+        <h2>Eligibility Of Mortgage Approval</h2>
          <h3>Monthly Income:</h3>
               <Input type='number' name='income' value={data.income}
               onChange={event => handleChange(event)} />
