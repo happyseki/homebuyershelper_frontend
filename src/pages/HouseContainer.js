@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import HouseList from '../components/HouseList.js';
 import HousesMap from '../components/HousesMap.js';
 import HouseDetail from '../pages/HouseDetail.js';
+import Search from '../components/Search.js';
 
 class HouseContainer extends Component {
 
   render() {
     return (
      <React.Fragment>
+       <Search updateSearchInput={this.props.updateSearchInput}/>
          <div className='row'>
 
             <div className='column'>

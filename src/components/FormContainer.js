@@ -141,8 +141,8 @@ class FormContainer extends Component {
         data={this.state}
         house={this.props.house}
       />
-      <h2> Result</h2>
-      <h3 >{this.state.income > 0 && this.getResult()<0.5? 'Congradulation, your mortgage application shall be approved by the bank.' : (this.state.income === 0 ? null : 'Sorry, not eligibale.')}</h3>
+      <h3> Result</h3>
+      <h2>{this.state.income > 0 && this.getResult()<0.5? 'Congradulation, your mortgage application shall be approved by the bank.' : (this.state.income === 0 ? null : 'Sorry, not eligibale.')}</h2>
       </div>
       </>
     );

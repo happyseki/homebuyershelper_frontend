@@ -2,7 +2,6 @@ import React from 'react';
 import HouseContainer from './pages/HouseContainer.js';
 import HouseDetail from './pages/HouseDetail.js';
 import Nav from './components/Nav.js';
-import Search from './components/Search.js';
 import NotFound from './pages/NotFound.js';
 import {Route, Switch} from 'react-router-dom';
 import './App.css';
@@ -38,9 +37,8 @@ class App extends React.Component {
     return(
         <React.Fragment>
           <Nav />
-          <Search updateSearchInput={this.updateSearchInput}/>
           <Switch>
-          <Route exact path="/houses" render={(router)=><HouseContainer {...router} houses={filteredHouses}/>} />
+          <Route exact path="/houses" render={(router)=><HouseContainer {...router} houses={filteredHouses} updateSearchInput={this.updateSearchInput}/>} />
           <Route exact path="/houses/:id" render={(router)=> {
             const foundHouse = this.state.houses.find(house => house.id === parseInt(router.match.params.id))
             return <HouseDetail {...router} house={foundHouse}/>

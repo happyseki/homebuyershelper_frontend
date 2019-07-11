@@ -10,6 +10,7 @@ class HouseDetail extends Component {
       return (
         <div className="HouseDetail">
         <main>
+          <h2>{house.house_type} For Sale</h2>
         <div className='row1'>
         <div className='info'>
            <div className="image-container">

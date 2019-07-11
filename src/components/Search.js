@@ -6,7 +6,7 @@ const Search = (props) => {
       <input
         id="search-bar"
         type="text"
-        placeholder="Search houses"
+        placeholder="Search house type"
         onChange={props.updateSearchInput}
       />
     </div>

@@ -97,6 +97,12 @@ body {
   flex-wrap: wrap;
 }
 
+.filter{
+  /* margin: 0, auto; */
+  margin-left: 45%;
+  margin-bottom: 10px
+}
+
 .house-container {
    display: grid;
    grid-template-columns: 1fr 1fr;
