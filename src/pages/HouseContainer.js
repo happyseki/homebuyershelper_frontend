@@ -10,7 +10,7 @@ class HouseContainer extends Component {
     return (
      <React.Fragment>
        <Search updateSearchInput={this.props.updateSearchInput}/>
-         <div className='row'>
+         <div className='row house-container'>
 
             <div className='column'>
               <HousesMap />

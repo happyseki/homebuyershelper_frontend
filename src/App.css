@@ -97,9 +97,11 @@ body {
   flex-wrap: wrap;
 }
 
-.filter{
-  /* margin: 0, auto; */
-  margin-left: 45%;
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px
 }
 
@@ -284,6 +286,38 @@ button:hover::before {
   opacity: 0;
 }
 
+#result{
+  margin-top: 1px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer,
+.push {
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  height: 50px;
+  background-color: white;
+  padding-top: 15px;
+}
+
+.house-container.row {
+  min-height: 600px;
+}
+
+.housesMap {
+  padding-top: 37px
+}
 
 
 @keyframes App-logo-spin {
