@@ -41,7 +41,7 @@ function Form(props) {
               onChange={event => handleChange(event)} />
           <br/>
 
-          <h3>Liabilities:</h3>
+          <h3>Liabilities(Minimum Monthly Payment):</h3>
               Car Loan:
               <Input type='number' name='carLoan' value={data.carLoan}
               onChange={handleChange} />
